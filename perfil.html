@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100d25">
+<meta name="description" content="Perfil de creador de Garabateadero.">
+<title>Mi perfil — Garabateadero</title>
+<style>
+:root{
+  --bg:#100d25;--panel:#191530;--line:#393253;--text:#f8f6ff;--muted:#a9a4bf;
+  --pink:#ff7fc7;--cyan:#72e7f1;--lime:#d0f878;--purple:#a28aff;
+  --sans:system-ui,-apple-system,'Segoe UI',sans-serif;--display:'Trebuchet MS',var(--sans);
+  --mono:ui-monospace,Consolas,monospace;--shadow:0 22px 70px #06051070
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% -25%,#32275d 0,transparent 46%),var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit}button{color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #fff1}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:-.04em}
+.brand-mark{width:35px;height:35px;display:grid;place-items:center;border:1px solid #ffffff35;border-radius:11px;background:linear-gradient(145deg,var(--pink),var(--purple) 67%,var(--cyan));color:#17112d;font-size:20px;transform:rotate(-7deg);box-shadow:0 0 22px #a28aff3a}
+.brand small{display:block;margin-top:1px;color:var(--muted);font:9px var(--mono);letter-spacing:.09em;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:22px;color:#c4bfd5;font-size:13px;font-weight:700}
+.nav a:hover{color:var(--pink)}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 16px;border:1px solid transparent;border-radius:10px;background:var(--pink);color:#21112d;font-size:12px;font-weight:800;transition:transform .18s,filter .18s}
+.button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.button.secondary{border-color:#ffffff26;background:#ffffff0b;color:var(--text)}
+.button.secondary:hover{border-color:#ffffff59;background:#ffffff12}
+.button.small{min-height:36px;padding:0 12px;font-size:11px}
+.eyebrow{display:flex;align-items:center;gap:9px;color:var(--cyan);font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.eyebrow:before{content:'';width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 13px var(--pink)}
+.profile-hero{margin-top:25px;overflow:hidden;border:1px solid #ffffff25;border-radius:18px;background:linear-gradient(145deg,#211a3d,#17132d 70%);box-shadow:var(--shadow)}
+.cover{height:190px;position:relative;overflow:hidden;background:radial-gradient(circle at 78% 20%,#ff7fc74a,transparent 24%),radial-gradient(circle at 22% 70%,#72e7f14a,transparent 30%),linear-gradient(120deg,#302052,#1b1738 55%,#25153d)}
+.cover:before,.cover:after{content:'✳';position:absolute;color:#ffffff12;font-size:180px;line-height:1;transform:rotate(-18deg)}
+.cover:before{right:12%;top:-38px}.cover:after{left:8%;bottom:-100px;font-size:250px;color:#a28aff18}
+.cover-label{position:absolute;right:20px;bottom:17px;padding:8px 11px;border:1px solid #ffffff30;border-radius:8px;background:#100d25a8;color:#e9e2ff;font:9px var(--mono);letter-spacing:.1em}
+.profile-main{display:flex;align-items:flex-end;gap:20px;padding:0 28px 23px}
+.avatar-wrap{width:112px;height:112px;flex:none;margin-top:-55px;padding:5px;border:1px solid #ffffff40;border-radius:25px;background:#191530;box-shadow:0 12px 32px #08061499;z-index:1}
+.avatar{width:100%;height:100%;display:grid;place-items:center;overflow:hidden;border-radius:20px;background:linear-gradient(145deg,#ff7fc7,#a28aff 60%,#72e7f1);color:#21112d;font:800 38px var(--display)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.profile-heading{min-width:0;flex:1;padding:13px 0 2px}
+.profile-heading h1{margin:0;font:800 clamp(25px,4vw,35px)/1.1 var(--display);letter-spacing:-.06em;overflow-wrap:anywhere}
+.handle{margin:5px 0 0;color:var(--cyan);font:11px var(--mono)}
+.profile-actions{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:2px}
+.profile-bio{max-width:750px;margin:0;padding:0 28px 24px;color:#c5bfd8;font-size:13px;line-height:1.75}
+.profile-bio em{color:var(--pink);font-style:normal}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:17px}
+.stat{padding:17px 18px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#1e1938,#17142b)}
+.stat strong{display:block;color:var(--text);font:800 25px var(--display)}
+.stat span{display:block;margin-top:4px;color:var(--muted);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.section{padding-top:54px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+.kicker{margin:0 0 8px;color:var(--cyan);font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+h2{margin:0;font:800 clamp(27px,4vw,36px)/1.06 var(--display);letter-spacing:-.055em}
+.section-head p:not(.kicker){margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
+.local-badge{flex:none;padding:9px 12px;border:1px solid #d0f8783b;border-radius:8px;background:#d0f8780d;color:var(--lime);font:9px var(--mono)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.post-card{overflow:hidden;border:1px solid #484064;border-radius:12px;background:linear-gradient(145deg,#1c1835,#17142b);transition:transform .18s,border-color .18s,box-shadow .18s}
+.post-card:hover{transform:translateY(-3px);border-color:#66598e;box-shadow:0 15px 35px #05040b55}
+.post-art{height:210px;overflow:hidden;background:#211b3d}
+.post-art img{display:block;width:100%;height:100%;object-fit:cover}
+.post-info{padding:13px 14px}
+.post-info h3{margin:0;font-size:15px;letter-spacing:-.035em}
+.post-copy{min-height:30px;margin:8px 0 10px;color:#bcb6ce;font-size:11px;line-height:1.55}
+.post-meta{display:flex;justify-content:space-between;align-items:center;padding-top:9px;border-top:1px solid #ffffff15;color:#8d87a5;font:9px var(--mono)}
+.empty{grid-column:1/-1;min-height:230px;display:grid;justify-items:center;align-content:center;gap:8px;padding:30px 20px;border:1px dashed #7162947c;border-radius:15px;background:radial-gradient(ellipse at 50% 0%,#a28aff12,transparent 65%),#17142b;color:var(--muted);text-align:center}
+.empty-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #a28aff51;border-radius:13px;background:#a28aff1a;color:#d1c3ff;font-size:22px}
+.empty b{margin:3px 0 0;color:var(--text);font-size:18px}
+.empty p{max-width:380px;margin:0 0 8px;font-size:11px;line-height:1.7}
+.footer{margin-top:65px;padding:23px 0 30px;border-top:1px solid #ffffff19;color:#8d87a5;font-size:10px}
+.footer-inner{display:flex;justify-content:space-between;gap:16px;align-items:center}
+.footer-mark{font-weight:800;font-size:12px;color:#e3dff0}
+.toast{position:fixed;right:22px;bottom:22px;z-index:9;max-width:min(390px,calc(100% - 44px));padding:12px 16px;border:1px solid #ffffff36;border-radius:9px;background:#24203e;color:#f9f6ff;font-size:11px;box-shadow:var(--shadow);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:760px){
+ .wrap{width:min(100% - 28px,560px)}.topbar{height:65px}.brand{font-size:15px}.nav{gap:12px}.nav a:not(.nav-main){display:none}
+ .cover{height:145px}.profile-main{align-items:flex-start;flex-wrap:wrap;gap:12px;padding:0 18px 17px}
+ .avatar-wrap{width:88px;height:88px;margin-top:-43px;border-radius:21px}.avatar{border-radius:16px;font-size:30px}
+ .profile-heading{padding-top:5px}.profile-heading h1{font-size:26px}.profile-actions{width:100%;padding:0}
+ .profile-bio{padding:0 18px 20px;font-size:12px}.stats{gap:8px}.stat{padding:14px 12px}.stat strong{font-size:22px}.stat span{font-size:8px}
+ .section{padding-top:43px}.section-head{align-items:flex-start;flex-direction:column}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.post-art{height:170px}
+}
+@media(max-width:460px){.gallery-grid{grid-template-columns:1fr}.post-art{height:220px}.stats{gap:6px}.stat{padding:12px 9px}.stat strong{font-size:20px}.stat span{font-size:7px;letter-spacing:.04em}.footer-inner{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="wrap topbar">
+  <a class="brand" href="index.html" aria-label="Garabateadero, inicio"><span class="brand-mark">✳</span><span>garabateadero<small>arte de dudosa procedencia</small></span></a>
+  <nav class="nav" aria-label="Navegación">
+    <a href="index.html#lienzo">El lienzo</a><a href="index.html#hub">La hub</a>
+    <a class="button small nav-main" href="index.html#lienzo">Hacer un garabato ↗</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="profile-hero" aria-label="Perfil del creador">
+    <div class="cover"><span class="cover-label">GARABATEADERO / PERFIL_001</span></div>
+    <div class="profile-main">
+      <div class="avatar-wrap"><div class="avatar" id="avatar">G</div></div>
+      <div class="profile-heading">
+        <h1 id="displayName">Artista anónimo</h1>
+        <p class="handle" id="handle">@garabatero</p>
+      </div>
+      <div class="profile-actions">
+        <button class="button secondary small" id="editBtn" type="button">✎ Editar perfil</button>
+        <a class="button small" href="index.html#lienzo">＋ Crear dibujo</a>
+      </div>
+    </div>
+    <p class="profile-bio" id="bio">Un artista en plena crisis creativa. <em>0 talento requerido, vergüenza opcional.</em></p>
+  </section>
+
+  <section class="stats" aria-label="Estadísticas del perfil">
+    <div class="stat"><strong id="artCount">0</strong><span>Obras publicadas</span></div>
+    <div class="stat"><strong id="likeCount">0</strong><span>Apoyos recibidos</span></div>
+    <div class="stat"><strong id="memberSince">—</strong><span>Estado</span></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div><p class="kicker">01 / Archivo personal</p><h2>Mis garabatos.</h2><p>Tus obras publicadas desde este navegador aparecen aquí.</p></div>
+      <div class="local-badge">✦ <span id="workLabel">0</span> OBRAS</div>
+    </div>
+    <div class="gallery-grid" id="myGallery" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer class="wrap footer"><div class="footer-inner"><div class="footer-mark">✳ garabateadero <span style="color:#928ca8;font:9px var(--mono)">/ hecho sin supervisión adulta</span></div><div>No necesitas talento para pasarla bien.</div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  const POSTS_KEY='garabateadero-posts-v1';
+  const ALIAS_KEY='garabateadero-alias-v1';
+  const BIO_KEY='garabateadero-bio-v1';
+  const AVATAR_KEY='garabateadero-avatar-v1';
+  const LIKES_KEY='garabateadero-likes-v1';
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const read=(key,fallback)=>{try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback}catch(e){return fallback}};
+  const toast=message=>{const node=$('toast');node.textContent=message;node.classList.add('show');clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>node.classList.remove('show'),2600)};
+  let alias=localStorage.getItem(ALIAS_KEY)||'';
+  let bio=localStorage.getItem(BIO_KEY)||'Un artista en plena crisis creativa. 0 talento requerido, vergüenza opcional.';
+  let avatar=localStorage.getItem(AVATAR_KEY)||'';
+  let posts=read(POSTS_KEY,[]);if(!Array.isArray(posts))posts=[];
+  const liked=read(LIKES_KEY,[]);
+
+  function initials(name){const parts=String(name||'G').trim().split(/\s+/);return (parts.length>1?parts[0][0]+parts[1][0]:parts[0].slice(0,2)).toUpperCase()}
+  function renderHeader(){
+    const name=alias.trim()||'Artista anónimo';
+    $('displayName').textContent=name;
+    $('handle').textContent='@'+(alias.trim()?alias.trim().toLowerCase().replace(/[^a-z0-9áéíóúñ_]+/g,'_'):'garabatero');
+    $('bio').textContent=bio;
+    $('avatar').innerHTML=avatar?'<img src="'+avatar+'" alt="Avatar de '+esc(name)+'">':esc(initials(name));
+  }
+  function renderPosts(){
+    const mine=alias.trim()?posts.filter(p=>String(p.author||'').toLocaleLowerCase('es')===alias.trim().toLocaleLowerCase('es')):[];
+    $('artCount').textContent=mine.length;
+    $('workLabel').textContent=mine.length;
+    $('likeCount').textContent=mine.reduce((sum,p)=>sum+(Number(p.likes)||0)+(liked.includes(String(p.id))?1:0),0);
+    $('memberSince').textContent=mine.length?'CREADOR':'NUEVO';
+    if(!mine.length){
+      $('myGallery').innerHTML='<div class="empty"><span class="empty-icon">✷</span><b>Tu galería está vacía.</b><p>Publica un dibujo desde el lienzo y aparecerá aquí. Recuerda usar el mismo apodo que tienes en tu perfil.</p><a class="button" href="index.html#lienzo">Hacer mi primer dibujo ↗</a></div>';
+      return;
+    }
+    $('myGallery').innerHTML=mine.slice().sort((a,b)=>(Number(b.created)||0)-(Number(a.created)||0)).map(p=>`
+      <article class="post-card">
+        <div class="post-art"><img src="${p.image}" alt="Dibujo: ${esc(p.title)}"></div>
+        <div class="post-info"><h3>${esc(p.title||'Sin título')}</h3>
+          <p class="post-copy">${esc(p.caption||'Sin contexto. Como debe ser.')}</p>
+          <div class="post-meta"><span>${esc(p.category||'Garabato')}</span><span>♥ ${Number(p.likes)||0}</span></div>
+        </div>
+      </article>`).join('');
+  }
+  $('editBtn').addEventListener('click',()=>{
+    const currentName=alias||'';
+    const currentBio=bio;
+    const name=prompt('¿Qué apodo quieres mostrar en tu perfil?',currentName);
+    if(name===null)return;
+    const cleanName=name.trim().slice(0,22);
+    if(!cleanName){toast('Escribe un apodo para identificar tus obras.');return}
+    const nextBio=prompt('Escribe una pequeña descripción para tu perfil:',currentBio);
+    if(nextBio===null)return;
+    alias=cleanName;bio=nextBio.trim().slice(0,180);
+    localStorage.setItem(ALIAS_KEY,alias);
+    localStorage.setItem(BIO_KEY,bio);
+    renderHeader();renderPosts();toast('Perfil actualizado en este navegador.');
+  });
+  renderHeader();renderPosts();
+})();
+</script>
+</body>
+</html>
